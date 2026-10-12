@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "download-file-inspector"
+version = "0.1.0"
+description = "Local SHA-256 comparison and bounded ZIP risk inspection"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+download-inspector = "download_inspector.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+download_inspector = ["web/*", "web/assets/*"]

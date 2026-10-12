@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Download File Inspector</title>
+  <link rel="icon" href="/assets/shield-check.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <header><div class="brand"><img src="/assets/shield-check.svg" alt="" width="28" height="28"><h1>Download File Inspector</h1></div><span class="local">LOCAL ONLY</span></header>
+  <main>
+    <section class="input-section" aria-labelledby="input-heading">
+      <div class="section-heading"><h2 id="input-heading">파일 검사</h2><span>최대 64 MiB</span></div>
+      <form id="inspect-form">
+        <label id="drop-zone" class="drop-zone" for="file"><img src="/assets/folder-open.svg" alt="" width="32" height="32"><strong id="file-name">파일 선택</strong><span id="file-size">선택된 파일 없음</span><input id="file" type="file" aria-label="검사할 파일 선택"></label>
+        <div class="reference"><label for="expected">원본 SHA-256 <span class="muted">선택</span></label><input id="expected" type="text" maxlength="64" autocomplete="off" spellcheck="false" placeholder="신뢰할 수 있는 배포처의 SHA-256" pattern="[a-fA-F0-9]{64}"><div class="actions"><button id="inspect" class="primary" type="submit" disabled><img src="/assets/shield-check.svg" alt="">검사</button><button id="reset" type="button" class="icon-button" title="초기화" aria-label="초기화"><img src="/assets/rotate-ccw.svg" alt=""></button><button id="cancel" type="button" hidden>취소</button></div></div>
+      </form>
+      <p id="message" role="status" aria-live="polite">검사 대기</p>
+    </section>
+    <section id="results" hidden aria-labelledby="result-heading">
+      <div class="section-heading"><h2 id="result-heading">검사 결과</h2><button id="export" class="icon-button" title="JSON 보고서 저장" aria-label="JSON 보고서 저장"><img src="/assets/download.svg" alt=""></button></div>
+      <div class="summary"><div><span>원본 대조</span><strong id="integrity">판단 불가</strong></div><div><span>위험 징후</span><strong id="risk">-</strong></div><div><span>ZIP 메타데이터</span><strong id="archive-status">-</strong></div></div>
+      <dl class="details"><dt>파일</dt><dd id="result-name"></dd><dt>크기 / 형식</dt><dd id="result-type"></dd><dt>SHA-256</dt><dd id="digest" class="mono"></dd><dt>검사 범위</dt><dd>악성코드 판정 미실시 · ZIP 내용·CRC 미검사 · 안전성 보증 없음</dd></dl>
+      <nav class="tabs" aria-label="결과 보기"><button type="button" data-tab="findings" aria-pressed="true">위험 징후 <span id="finding-count">0</span></button><button type="button" data-tab="members" aria-pressed="false">ZIP 목록 <span id="member-count">0</span></button><button type="button" data-tab="json" aria-pressed="false">JSON</button></nav>
+      <div id="findings-panel"><div id="findings"></div></div>
+      <div id="members-panel" hidden><div class="list-toolbar"><label for="search">파일명 검색</label><input id="search" type="search" autocomplete="off"><span id="member-summary"></span></div><div class="table-scroll"><table><thead><tr><th>이름</th><th>크기</th><th>압축 후</th><th>암호화</th></tr></thead><tbody id="members"></tbody></table></div><p id="no-members" hidden>ZIP 항목 없음</p></div>
+      <pre id="json-panel" hidden></pre>
+    </section>
+  </main>
+  <footer><span>외부 전송 없음 · 파일 저장 없음</span><span>v0.1.0</span></footer>
+</body>
+</html>
