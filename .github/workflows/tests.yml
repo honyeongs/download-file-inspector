@@ -25,6 +25,13 @@ jobs:
           python-version: ${{ matrix.python }}
       - run: python -m pip install .
       - run: python -m unittest discover -v
+      - name: Ten portfolio scenarios with privacy-safe evidence
+        run: python tools/run_portfolio_validation.py --suite portfolio --output reports/ci-portfolio.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: public-portfolio-${{ matrix.os }}-${{ matrix.python }}
+          path: reports/ci-portfolio.*
       - name: Installed CLI and packaged web assets
         shell: bash
         run: |
