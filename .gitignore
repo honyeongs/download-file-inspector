@@ -24,3 +24,4 @@ test-results/
 /bandit.json
 .DS_Store
 Thumbs.db
+website/dist/

@@ -1,5 +1,7 @@
 # Download File Inspector
 
+[웹에서 바로 사용](https://download-inspector-web.yao0422q.chatgpt.site/) · [Windows 앱 설치와 웹 실행 안내](docs/WEBSITE.md)
+
 최근 검사: [대표 10개·전체 회귀·웹 테스트 공개 기록](docs/testing/README.md). 원본 개인정보와 비밀값은 포함하지 않습니다.
 
 다운로드한 파일을 **열기 전에** 로컬에서 검사하는 보안 포트폴리오 프로젝트입니다.

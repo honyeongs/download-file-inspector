@@ -14,6 +14,7 @@ WEB_ROOT = Path(__file__).parent / "web"
 ASSETS = {"/": ("index.html", "text/html; charset=utf-8"),
           "/app.js": ("app.js", "text/javascript; charset=utf-8"),
           "/render.js": ("render.js", "text/javascript; charset=utf-8"),
+          "/transport.js": ("transport.js", "text/javascript; charset=utf-8"),
           "/style.css": ("style.css", "text/css; charset=utf-8")}
 for _icon in ("shield-check", "folder-open", "download", "rotate-ccw"):
     ASSETS[f"/assets/{_icon}.svg"] = (f"assets/{_icon}.svg", "image/svg+xml")

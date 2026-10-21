@@ -1,4 +1,5 @@
 import {$, size, visibleName, renderReport, renderMembers, selectTab} from './render.js';
+import {apiRequest} from './transport.js';
 
 let file = null;
 let report = null;
@@ -27,6 +28,7 @@ function choose(selected) {
   busy(false);
 }
 $('file').addEventListener('change', (event) => choose(event.target.files[0]));
+document.addEventListener('inspector:sample', (event) => choose(event.detail));
 for (const name of ['dragenter', 'dragover', 'dragleave', 'drop']) {
   $('drop-zone').addEventListener(name, (event) => {
     event.preventDefault();
@@ -55,7 +57,7 @@ $('inspect-form').addEventListener('submit', async (event) => {
   try {
     const headers = {'Content-Type': 'application/octet-stream', 'X-File-Name': encodeURIComponent(file.name)};
     if (expected) headers['X-Expected-SHA256'] = expected;
-    const response = await fetch('/api/inspect', {method: 'POST', headers, body: file, signal: activeController.signal});
+    const response = await apiRequest('/api/inspect', {method: 'POST', headers, body: file, signal: activeController.signal});
     const data = await response.json();
     if (current !== generation) return;
     if (!response.ok) throw new Error(data.error || '검사 실패');

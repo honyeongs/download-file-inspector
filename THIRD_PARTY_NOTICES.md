@@ -1,5 +1,7 @@
 # Third-party notices
 
+Hosted browser PWA: Pyodide 0.29.5 / CPython 3.13.2 and included runtime components are distributed separately from the CLI. Original notices and source links are in [website/THIRD_PARTY.md](website/THIRD_PARTY.md) and the deployed license page. PNG/ICO app icons are color/background adaptations of the existing Lucide shield, with original notices retained. Generated runtime binaries are excluded from this GitHub checkout.
+
 Runtime: Python standard library only; Python is installed separately, not redistributed here.
 
 UI: four Lucide SVG icons (`shield-check`, `folder-open`, `download`, `rotate-ccw`).
