@@ -1,5 +1,7 @@
 # Security Policy
 
+The public PWA is separate from the loopback development server: it analyzes files in the browser and serves only fixed public assets from a header-enforcing Worker. See [deployed security-fix verification](docs/SECURITY_FIXES_2026-10-22.md). The loopback-only restrictions below still apply to the Python server.
+
 This is a local portfolio tool, not an antivirus, sandbox, security certification, or production multi-user upload service.
 
 ## Security boundaries

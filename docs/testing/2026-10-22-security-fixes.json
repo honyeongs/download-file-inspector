@@ -1,0 +1,502 @@
+{
+  "schema_version": "1.0",
+  "repository": "download-file-inspector",
+  "started_utc": "2026-10-22T00:18:30.220091+00:00",
+  "environment": {
+    "os": "Windows",
+    "python": "3.14.7"
+  },
+  "source": {
+    "base_commit": "a4c00857234ab2ecebf025767cb8ab64e46e20cb",
+    "tested_files_sha256": "83588fc410f4323e7392598cab84782549ee1a8f8e8627b28053ad0b460abc67",
+    "file_count": 48,
+    "fingerprint_scope": "src/tests/tools/scripts/labs/deploy plus run.py, pyproject.toml and runtime lock; LF canonicalized"
+  },
+  "data_policy": "Only test IDs, outcomes, counts, timings and code-owned descriptions are exported. No raw logs, exception text, paths, account names, IPs, tokens or browser screenshots.",
+  "limitations": [
+    "Two portfolio cases use actual tracked project files read locally; other cases use inert generated fixtures.",
+    "Locally calculated reference hashes test comparison mechanics, not publisher authenticity.",
+    "No malware execution, antivirus verdict, extraction, content CRC verification or download interception is performed.",
+    "Windows symbolic-link cases may be skipped when the account lacks the required privilege."
+  ],
+  "portfolio": {
+    "summary": {
+      "error": 0,
+      "expected_failure": 0,
+      "failed": 0,
+      "passed": 10,
+      "skipped": 0,
+      "unexpected_success": 0,
+      "total": 10,
+      "fixture_errors": 0
+    },
+    "tests": [
+      {
+        "test_id": "tests.test_portfolio_files.ProjectFileTests.test_actual_readme_copy_and_mutation",
+        "status": "passed",
+        "duration_ms": 77.407,
+        "case_id": "P01",
+        "title": "Real project README copy and controlled byte mutation"
+      },
+      {
+        "test_id": "tests.test_portfolio_files.ProjectFileTests.test_zip_of_actual_project_sources",
+        "status": "passed",
+        "duration_ms": 65.594,
+        "case_id": "P02",
+        "title": "ZIP containing actual project source files"
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_paths",
+        "status": "passed",
+        "duration_ms": 0.791,
+        "case_id": "P03",
+        "title": "ZIP parent and absolute path escape indicators"
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_encryption",
+        "status": "passed",
+        "duration_ms": 0.083,
+        "case_id": "P04",
+        "title": "ZIP encrypted metadata indicator"
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_ratio",
+        "status": "passed",
+        "duration_ms": 2.417,
+        "case_id": "P05",
+        "title": "Bounded high compression ratio indicator"
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_header_disagreement",
+        "status": "passed",
+        "duration_ms": 0.087,
+        "case_id": "P06",
+        "title": "Local/central ZIP header disagreement"
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_no_decompression_or_extraction",
+        "status": "passed",
+        "duration_ms": 89.62,
+        "case_id": "P07",
+        "title": "No decompression or extraction during inspection"
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_crc_not_claimed",
+        "status": "passed",
+        "duration_ms": 0.113,
+        "case_id": "P08",
+        "title": "Payload mutation does not imply a CRC check"
+      },
+      {
+        "test_id": "tests.test_inspection.InspectionTests.test_missing_hash",
+        "status": "passed",
+        "duration_ms": 0.029,
+        "case_id": "P09",
+        "title": "Missing trusted reference is not integrity proof"
+      },
+      {
+        "test_id": "tests.test_inspection.InspectionTests.test_bidi_filename",
+        "status": "passed",
+        "duration_ms": 0.034,
+        "case_id": "P10",
+        "title": "Bidirectional filename control indicator"
+      }
+    ]
+  },
+  "regression": {
+    "summary": {
+      "error": 0,
+      "expected_failure": 0,
+      "failed": 0,
+      "passed": 75,
+      "skipped": 1,
+      "unexpected_success": 0,
+      "total": 76,
+      "fixture_errors": 0
+    },
+    "tests": [
+      {
+        "test_id": "tests.test_cli.CliTests.test_invalid_input",
+        "status": "passed",
+        "duration_ms": 2.02
+      },
+      {
+        "test_id": "tests.test_cli.CliTests.test_output_never_overwrites",
+        "status": "passed",
+        "duration_ms": 65.615
+      },
+      {
+        "test_id": "tests.test_cli.CliTests.test_report_and_hash",
+        "status": "passed",
+        "duration_ms": 42.042
+      },
+      {
+        "test_id": "tests.test_cli.CliTests.test_report_contains_no_absolute_path",
+        "status": "passed",
+        "duration_ms": 17.448
+      },
+      {
+        "test_id": "tests.test_hosting.HostingBuildTests.test_changed_asset_fails_before_packaging",
+        "status": "passed",
+        "duration_ms": 9.686
+      },
+      {
+        "test_id": "tests.test_hosting.HostingBuildTests.test_input_and_output_must_not_overlap",
+        "status": "passed",
+        "duration_ms": 6.66
+      },
+      {
+        "test_id": "tests.test_hosting.HostingBuildTests.test_inventory_cannot_escape_public_directory",
+        "status": "passed",
+        "duration_ms": 9.085
+      },
+      {
+        "test_id": "tests.test_hosting.HostingBuildTests.test_packages_only_reviewed_assets_and_original_bytes",
+        "status": "passed",
+        "duration_ms": 15.916
+      },
+      {
+        "test_id": "tests.test_hosting.HostingBuildTests.test_unrelated_output_is_preserved_and_rejected",
+        "status": "passed",
+        "duration_ms": 12.416
+      },
+      {
+        "test_id": "tests.test_inspection.InspectionTests.test_bidi_filename",
+        "status": "passed",
+        "duration_ms": 0.083
+      },
+      {
+        "test_id": "tests.test_inspection.InspectionTests.test_executable_signature_and_disguise",
+        "status": "passed",
+        "duration_ms": 0.143
+      },
+      {
+        "test_id": "tests.test_inspection.InspectionTests.test_hash_match_is_not_safety",
+        "status": "passed",
+        "duration_ms": 0.166
+      },
+      {
+        "test_id": "tests.test_inspection.InspectionTests.test_immutable",
+        "status": "passed",
+        "duration_ms": 0.021
+      },
+      {
+        "test_id": "tests.test_inspection.InspectionTests.test_invalid_digest",
+        "status": "passed",
+        "duration_ms": 0.066
+      },
+      {
+        "test_id": "tests.test_inspection.InspectionTests.test_limit",
+        "status": "passed",
+        "duration_ms": 0.014
+      },
+      {
+        "test_id": "tests.test_inspection.InspectionTests.test_mismatch",
+        "status": "passed",
+        "duration_ms": 0.03
+      },
+      {
+        "test_id": "tests.test_inspection.InspectionTests.test_missing_hash",
+        "status": "passed",
+        "duration_ms": 0.021
+      },
+      {
+        "test_id": "tests.test_inspection.InspectionTests.test_name_limits",
+        "status": "passed",
+        "duration_ms": 0.012
+      },
+      {
+        "test_id": "tests.test_inspection.InspectionTests.test_snapshot",
+        "status": "passed",
+        "duration_ms": 15.757
+      },
+      {
+        "test_id": "tests.test_inspection.InspectionTests.test_symlink_rejected",
+        "status": "skipped",
+        "skip_category": "symlink_privilege",
+        "duration_ms": 2.369
+      },
+      {
+        "test_id": "tests.test_inspection.InspectionTests.test_type_mismatch",
+        "status": "passed",
+        "duration_ms": 0.085
+      },
+      {
+        "test_id": "tests.test_inspection.InspectionTests.test_unknown_and_empty",
+        "status": "passed",
+        "duration_ms": 0.041
+      },
+      {
+        "test_id": "tests.test_portfolio_files.ProjectFileTests.test_actual_readme_copy_and_mutation",
+        "status": "passed",
+        "duration_ms": 56.915
+      },
+      {
+        "test_id": "tests.test_portfolio_files.ProjectFileTests.test_zip_of_actual_project_sources",
+        "status": "passed",
+        "duration_ms": 55.705
+      },
+      {
+        "test_id": "tests.test_server.ServerTests.test_assets_and_headers",
+        "status": "passed",
+        "duration_ms": 17.738
+      },
+      {
+        "test_id": "tests.test_server.ServerTests.test_cross_origin_rejected",
+        "status": "passed",
+        "duration_ms": 26.311
+      },
+      {
+        "test_id": "tests.test_server.ServerTests.test_dns_rebinding_host_rejected",
+        "status": "passed",
+        "duration_ms": 31.508
+      },
+      {
+        "test_id": "tests.test_server.ServerTests.test_empty_file",
+        "status": "passed",
+        "duration_ms": 16.002
+      },
+      {
+        "test_id": "tests.test_server.ServerTests.test_health",
+        "status": "passed",
+        "duration_ms": 0.819
+      },
+      {
+        "test_id": "tests.test_server.ServerTests.test_malicious_filename_is_json_not_html",
+        "status": "passed",
+        "duration_ms": 1.026
+      },
+      {
+        "test_id": "tests.test_server.ServerTests.test_missing_invalid_or_ambiguous_length",
+        "status": "passed",
+        "duration_ms": 13.993
+      },
+      {
+        "test_id": "tests.test_server.ServerTests.test_path_traversal_and_unknown_routes",
+        "status": "passed",
+        "duration_ms": 3.006
+      },
+      {
+        "test_id": "tests.test_server.ServerTests.test_port_validation",
+        "status": "passed",
+        "duration_ms": 0.028
+      },
+      {
+        "test_id": "tests.test_server.ServerTests.test_type_limit_and_filename_validation",
+        "status": "passed",
+        "duration_ms": 44.406
+      },
+      {
+        "test_id": "tests.test_server.ServerTests.test_zip_flow",
+        "status": "passed",
+        "duration_ms": 15.757
+      },
+      {
+        "test_id": "tests.test_validation_evidence.EvidenceTests.test_class_fixture_failure_is_counted",
+        "status": "passed",
+        "duration_ms": 1.018
+      },
+      {
+        "test_id": "tests.test_validation_evidence.EvidenceTests.test_failure_text_stdout_and_stderr_never_exported",
+        "status": "passed",
+        "duration_ms": 0.375
+      },
+      {
+        "test_id": "tests.test_validation_evidence.EvidenceTests.test_public_schema_rejects_inconsistent_counts",
+        "status": "passed",
+        "duration_ms": 187.151
+      },
+      {
+        "test_id": "tests.test_validation_evidence.EvidenceTests.test_public_schema_rejects_raw_fields_and_descriptions",
+        "status": "passed",
+        "duration_ms": 56.281
+      },
+      {
+        "test_id": "tests.test_validation_evidence.EvidenceTests.test_subtest_failure_not_reported_as_success",
+        "status": "passed",
+        "duration_ms": 0.489
+      },
+      {
+        "test_id": "tests.test_validation_evidence.EvidenceTests.test_unknown_skip_text_never_exported",
+        "status": "passed",
+        "duration_ms": 0.079
+      },
+      {
+        "test_id": "tests.test_website.WebsiteTests.test_error_never_echoes_raw_exception_or_payload",
+        "status": "passed",
+        "duration_ms": 1.39
+      },
+      {
+        "test_id": "tests.test_website.WebsiteTests.test_no_input_evaluation_in_bridge",
+        "status": "passed",
+        "duration_ms": 1.738
+      },
+      {
+        "test_id": "tests.test_website.WebsiteTests.test_original_app_icons_and_public_configuration",
+        "status": "passed",
+        "duration_ms": 2.164
+      },
+      {
+        "test_id": "tests.test_website.WebsiteTests.test_original_engine_is_used_and_virtual_files_cleaned",
+        "status": "passed",
+        "duration_ms": 1.144
+      },
+      {
+        "test_id": "tests.test_website.WebsiteTests.test_runtime_pin_and_copyright_notices_are_present",
+        "status": "passed",
+        "duration_ms": 16.014
+      },
+      {
+        "test_id": "tests.test_website.WebsiteTests.test_unknown_route_is_not_an_execution_interface",
+        "status": "passed",
+        "duration_ms": 1.323
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_benign_metadata",
+        "status": "passed",
+        "duration_ms": 0.197
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_bounded_findings",
+        "status": "passed",
+        "duration_ms": 0.142
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_central_byte_limit",
+        "status": "passed",
+        "duration_ms": 0.07
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_colliding",
+        "status": "passed",
+        "duration_ms": 0.127
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_compression_method",
+        "status": "passed",
+        "duration_ms": 0.092
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_crc_declaration_disagreement",
+        "status": "passed",
+        "duration_ms": 0.089
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_crc_not_claimed",
+        "status": "passed",
+        "duration_ms": 0.073
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_data_descriptor_archive",
+        "status": "passed",
+        "duration_ms": 0.109
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_declared_size",
+        "status": "passed",
+        "duration_ms": 0.075
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_duplicate",
+        "status": "passed",
+        "duration_ms": 0.131
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_empty_zip",
+        "status": "passed",
+        "duration_ms": 0.039
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_encryption",
+        "status": "passed",
+        "duration_ms": 0.075
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_entry_count_tampering",
+        "status": "passed",
+        "duration_ms": 0.051
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_entry_limit",
+        "status": "passed",
+        "duration_ms": 0.062
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_header_disagreement",
+        "status": "passed",
+        "duration_ms": 0.071
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_invalid_and_truncated",
+        "status": "passed",
+        "duration_ms": 0.096
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_malformed_utf8",
+        "status": "passed",
+        "duration_ms": 0.061
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_member_outside_data",
+        "status": "passed",
+        "duration_ms": 0.072
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_multidisk_and_zip64",
+        "status": "passed",
+        "duration_ms": 0.058
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_mutated_metadata_does_not_crash",
+        "status": "passed",
+        "duration_ms": 12.043
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_nested_and_macros",
+        "status": "passed",
+        "duration_ms": 0.136
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_no_decompression_or_extraction",
+        "status": "passed",
+        "duration_ms": 0.286
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_overlapping_members",
+        "status": "passed",
+        "duration_ms": 0.141
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_paths",
+        "status": "passed",
+        "duration_ms": 0.433
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_portable_paths",
+        "status": "passed",
+        "duration_ms": 0.18
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_ratio",
+        "status": "passed",
+        "duration_ms": 2.526
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_symlink",
+        "status": "passed",
+        "duration_ms": 0.075
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_zip_comment",
+        "status": "passed",
+        "duration_ms": 0.08
+      },
+      {
+        "test_id": "tests.test_zip_risks.ZipRiskTests.test_zip_disguised_as_text_and_sfx",
+        "status": "passed",
+        "duration_ms": 0.127
+      }
+    ]
+  },
+  "additional_checks": []
+}

@@ -26,6 +26,8 @@ jobs:
           python -m pip install .
           curl --fail --location --output /tmp/pyodide-core.tar.bz2 https://github.com/pyodide/pyodide/releases/download/0.29.5/pyodide-core-0.29.5.tar.bz2
           python tools/build_website.py --runtime-archive /tmp/pyodide-core.tar.bz2
+          python tools/build_hosting.py
+          node --test tests/web/hosting.test.mjs
           npm install --no-save --package-lock=false playwright@1.64.0
           npx playwright install --with-deps chromium
       - name: Verify native parity, privacy, install metadata and offline reload

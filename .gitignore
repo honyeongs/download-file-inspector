@@ -25,3 +25,4 @@ test-results/
 .DS_Store
 Thumbs.db
 website/dist/
+website/hosting-dist/
